@@ -120,6 +120,8 @@ app.use("/",reviews)//reviews!
 app.use("/",signup)
 app.use("/",login)
 //(I didnt write entire path here to avoid confusions at actual routes!)
+import { index } from "./controllers/listingController.js";
+app.get("/", index);  // Home page shows listings
 
 //function to delete purane reviews!!
 const deleteReviews=async ()=>{
