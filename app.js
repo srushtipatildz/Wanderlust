@@ -115,13 +115,16 @@ import listings from "./routes/listing.js"
 import reviews from "./routes/review.js"
 import signup from "./routes/user.js"
 import login from "./routes/user.js"
+//import { index } from "./controllers/listingController.js";
+
+
 app.use("/",listings)//listing!
 app.use("/",reviews)//reviews!
 app.use("/",signup)
 app.use("/",login)
 //(I didnt write entire path here to avoid confusions at actual routes!)
-import { index } from "./controllers/listingController.js";
-app.get("/", index);  // Home page shows listings
+
+ // Home page shows listings
 
 //function to delete purane reviews!!
 const deleteReviews=async ()=>{

@@ -48,6 +48,7 @@ const validateListing = (req, res, next) => {
     next()
 }
 //Index Routing
+router.get("/", listingController.index); 
 router.get("/listings",listingController.index)
 //Rendering New form
 router.get("/listings/add",listingController.newForm)
