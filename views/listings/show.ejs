@@ -1,0 +1,149 @@
+<%- include('../partials/boilerplate') %>
+  <!-- main card show -->
+  <% if (error.length> 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+      <% if (success.length> 0) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= success %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+          <div class="card col-8 card-show ">
+            <h4 class="form-heading title-name">
+              <%= listing.title %>
+            </h4>
+            <img src="<%= listing.image.url%>" class="card-img-top-show " alt="...">
+            <div class="card-body">
+              <!-- <h3 class="card-title"><%= listing.title %></h3> -->
+              <h6 class="card-text">
+                <%= listing.description %>
+              </h6>
+              <p><i>Owned By: <%=listing.owner.username %></i>
+              </p>
+              <p>Price:&#8377; <%= listing.price %>
+              </p>
+              <p> Location: <%= listing.location %>
+              </p>
+              <p>Country: <%= listing.country %>
+              </p>
+              <div class="form-button-show">
+                <form action="/listings/<%=listing._id %>/edit" method="get">
+                  <button class="button btn">Edit</button>
+                </form>
+                <form action="/listings/<%= listing._id %>/edit?_method=DELETE" method="post">
+                  <button class="button btn">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review Form: -->
+
+          <div class="col-6 review-form">
+            <h5>Leave Review for <%=listing.title %>%>!</h1>
+
+                <form action="/listings/<%=listing._id %>/reviews" method="post" novalidate class="needs-validation">
+
+                  <div class="mb-3">
+                    <label for="comment" class="form-label">Comment:</label>
+                    <textarea class="form-control" id="description" rows="4" cols="3" name="comment"
+                      style="resize: none;" required></textarea>
+                    <div class="invalid-feedback">
+                      Please leave a comment
+                    </div>
+                  </div>
+
+                  <fieldset class="starability-grow">
+                    <h5>Add Rating:</h5>
+                  
+                    <input type="radio" id="first-rate1" name="rating" value="1"  oninput="updateRangeValue(this.value)"/>
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" oninput="updateRangeValue(this.value)" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3"  oninput="updateRangeValue(this.value)"/>
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" oninput="updateRangeValue(this.value)" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5"  oninput="updateRangeValue(this.value)"/>
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                  </fieldset>
+
+                  <!-- <label for="customRange2" class="form-label">Rating: <span id="rangeValue">3</span></label>
+                  <input type="range" class="form-range" min="0" max="5" id="customRange2" name="rating"
+                    oninput="updateRangeValue(this.value)"> -->
+                    <br>
+                    <div>
+                  <div class="form-button-show">
+                    <button class="button btn" type="submit">Submit</button>
+                  </div>
+                </div>
+                </form>
+          </div>
+        
+          <!-- Reviews Template -->
+
+          <div class="review-cont">
+            <h5> Customer Reviews:</h5>
+            <div class="review-list">
+              <%for ( let list of listing.reviews){%>
+                <div class="card col-6 " style="width: 18rem;">
+
+                  <div class="card-body">
+                    <p>@<%=list.author.username%>
+                    </p>
+                    <p class="card-title" style="font-weight: 500;">Rating: <%= list.rating %>stars
+
+                    </p>
+                    
+                      <fieldset class="starability-grow">
+                        <% for (let i = 0; i < list.rating; i++) { %>
+                          <input type="radio" id="rate-<%= i+1 %>" name="rating" value="<%= i+1 %>" />
+                          <label for="rate-<%= i+1 %>" title="<%= i+1 %> stars"><%= i+1 %> star</label>
+                        <% } %>
+                      </fieldset>
+                        <p class="card-text">
+                          <%= list.comment %>
+                        </p>
+
+                        <form action="/listings/<%= listing._id %>/reviews/<%= list._id %>?_method=DELETE"
+                          method="post">
+                          <button class="btn btn-primary">Delete</button>
+                        </form>
+                  </div>
+                </div>
+                <% } %>
+            </div>
+          </div>
+          </div>
+          <%- include('../includes/footer') %>
+            <script>
+              //Bootstrap wala
+              (() => {
+                'use strict'
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                const forms = document.querySelectorAll('.needs-validation')
+                // Loop over them and prevent submission
+                Array.from(forms).forEach(form => {
+                  form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                      event.preventDefault()
+                      event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                  }, false)
+                })
+              })()
+              //code for range values!!
+              function updateRangeValue(value) {
+                document.getElementById("rangeValue").textContent = value;
+              }
+            </script>
+
+            
+
+     

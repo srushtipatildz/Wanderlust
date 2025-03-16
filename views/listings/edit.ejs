@@ -1,0 +1,38 @@
+<%- include('../partials/boilerplate') %>
+
+  <div class="col-6 offset-2">
+    <h1 class="form-heading">Edit This</h1>
+    <form action="/listings/<%= listing._id %>/edit?_method=PATCH" method="post">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" name="title" id="title" value="<%= listing.title %>">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" rows="3" cols="4" name="description"
+          style="resize: none;"><%= listing.description %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image Url:</label>
+        <input type="text" class="form-control" name="image" id="image" value="<%= listing.image %>">
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Price</label>
+        <input type="text" class="form-control" name="price" id="price" value="<%= listing.price %>">
+      </div>
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Location </label>
+        <input type="text" class="form-control" name="location" id="location" value="<%= listing.location %>">
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Country</label>
+        <input type="text" class="form-control" name="country" id="country" value="<%= listing.country%>">
+      </div>
+
+      <div class="mb-3 form-button">
+        <button type="submit" class="btn btn-outline-secondary">Edit</button>
+      </div>
+    </form>
+  </div>
+  <%- include('../includes/footer') %>

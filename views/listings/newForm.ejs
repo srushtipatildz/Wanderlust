@@ -1,0 +1,83 @@
+<!-- Add Listing -->
+<%- include('../partials/boilerplate') %>
+
+
+  <div class="col-6 offset-2">
+    <h1 class="form-heading">ADD NEW LIST:</h1>
+    <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+        <div class="invalid-feedback">
+          Please Add Title
+        </div>
+        <!-- <div class="valid-feedback">
+           Good Title
+          </div> -->
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" rows="1" name="description" style="resize: none;"></textarea>
+        <div class="invalid-feedback">
+          Add Description
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload image</label>
+        <input type="file" class="form-control" name="image" id="image" required>
+        <div class="invalid-feedback">
+          Choose image Please:
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+        <div class="invalid-feedback">
+          Please Add Price
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location:</label>
+        <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+        <div class="invalid-feedback">
+          Please Add Location
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="country" class="form-label">Country:</label>
+        <input type="text" class="form-control" name="country" id="country" placeholder="Country">
+        <div class="invalid-feedback">
+          Please Add Country
+
+        </div>
+      </div>
+
+      <div class="mb-3 form-button">
+        <button type="submit" class="btn btn-outline-secondary">Add list</button>
+      </div>
+
+    </form>
+  </div>
+  <%- include('../includes/footer') %>
+  <script>
+    (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+  

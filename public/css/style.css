@@ -1,0 +1,217 @@
+body{
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    
+}
+/* .container{
+    flex: 1;
+} */
+.navbar{
+    position: sticky;
+    top: 0;
+    height:5rem;
+    background-color: white;
+    z-index: 1;
+}
+.navbar-brand{
+    color: rgb(242, 65, 124);
+    font-size: 2rem;
+}
+.nav-link{
+    font-size: 1.25rem;
+    margin-top: 8px;
+}
+.nav-link:hover{
+    font-size: 1.25rem;
+    margin-top: 8px;
+    color: rgb(242, 65, 124);
+}
+.footer{
+    height: 8.5rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+   
+    padding: 10px;
+    text-align: center;
+}
+.footer-items{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2.25rem;
+}
+.footer-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.footer-eng{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+}
+.footer-social-media {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+}
+.card-container{
+   padding-top:1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+.card-img-top{
+    border-radius: 20px;
+}
+.card{
+    border-radius: 20px;
+}
+/* .mb-3{
+    width: 500px;
+    height: 60px;
+    margin-left: 300px;
+} */
+.form-button{
+   display: flex;
+   justify-content: flex-end;
+   height: fit-content;
+   
+}
+.form-button button{
+    background-color: rgb(242, 65, 124);
+    color: white;
+}
+.form-label{
+    font-weight: 600;
+}
+.form-heading{
+    font-size: 1.5rem;
+    
+}
+.card-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.card-show {
+    height: 35rem;
+    width: 40rem;
+    margin-left: 300px;
+    margin-top: 20px;
+}
+.card-img-top-show{
+    height: 15rem;
+    width: 30rem;
+    margin-left: 10px; 
+    border-radius: 20px;
+}
+
+.card-show h1{
+    margin-left: 27px;
+}
+.form-button-show{
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+.form-button-show button{
+   color: white;
+   background-color: rgb(242, 65, 124);
+}
+.review-form{
+    margin-left: 300px;
+    margin-top: 10px;
+}
+.review-list{
+    
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.review-cont{
+    margin-left: 170px;
+    margin-top: 20px;
+}
+
+.alert {
+    position: fixed;
+    margin-top: 50px;
+    top: 100;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    z-index: 1050; /* Ensures it appears above other elements */
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        top: -100px; /* Start off-screen */
+    }
+    to {
+        top: 0; /* Slide into view */
+    }
+}
+.login-signup{
+    display: flex;
+   
+}
+.filter-container{
+    height: 70px;
+    margin-top: 1rem;
+  
+    
+}
+.filter-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 10px;
+}
+.fa-solid:hover {
+    color: rgb(242, 65, 124); /* Change color to a lighter shade */
+    /* Reduce opacity for a lighter effect */
+   
+}
+.search{
+    background-color: white;
+    color:rgb(242, 65, 124) ;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: 10px;
+    
+}
+.search:hover {
+    background-color: rgb(242, 65, 124); /* Change background */
+    color: white; /* Change text color */
+}
+.search-bar{
+    border-radius: 40px;
+    height: 40px;
+    margin-top: 10px;
+    
+   
+}
+.fa-solid{
+    padding: 10px;
+}
+.title-name{
+    margin-left: 15px;
+    margin-top: 10px;
+  
+}
+.custom-icon {
+    font-size: 30px;  /* Change size */
+    color: grey;   /* Optional: Change color */
+    
+  }

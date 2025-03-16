@@ -1,0 +1,88 @@
+<!-- Main page ! -->
+<%- include('../partials/boilerplate') %>
+  <!-- <form method="get" action="/listings/add" >
+        <button>Add List</button>
+      </form> -->
+
+  <!-- flash wali cheeze -->
+  <%if(success.length>0){%>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <p>
+        <%=success%>
+      </p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <%}%>
+
+      <%if(error.length>0){%>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <p>
+            <%=error%>
+          </p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <%}%>
+         <div class="filter-container">
+         <div class="filter-items">
+          <div>
+            <i class="fa-solid fa-fire custom-icon"></i>
+            <p>Trending</p>
+           </div>
+         <div>
+          <i class="fa-solid fa-bed height=50px custom-icon" ></i>
+          <p>Rooms</p>
+         </div>
+         <div>
+          <i class="fa-solid fa-umbrella-beach custom-icon"></i>
+          <p>Beachfront</p>
+         </div>
+         <div>
+          <i class="fa-solid fa-mountain-sun custom-icon"></i>
+          <p>Mountains</p>
+         </div>
+         <div>
+          <i class="fa-solid fa-city custom-icon"></i>
+          <p>City</p>
+         </div>
+         <div>
+          <i class="fa-solid fa-star-of-life custom-icon"></i>
+          <p>Arctic</p>
+         </div>
+         <div>
+          <i class="fa-solid fa-snowflake custom-icon"></i>
+          <p>SnowFlake</p>
+         </div>
+         <div>
+          <i class="fa-solid fa-place-of-worship custom-icon"></i>
+          <p>Castle</p>
+          </div>
+         </div>
+         </div>
+          <div class="card-container">
+            <%for ( let list of allLists){%>
+              <div class="card" style="width: 18rem;">
+                <img src="<%= list.image.url %>" class="card-img-top" alt="..." height="250px">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= list.title %>
+                  </h5>
+                  <p class="card-text">
+                    <%= list.description %>
+                  </p>
+                  <a href="/listings/<%= list._id %>" class="btn btn-primary">View in Detail</a>
+                </div>
+              </div>
+
+              <!-- <a href="/listings/<%= list._id %>" style="text-decoration: none;"><%= list.title %></a> -->
+              <% } %>
+          </div>
+          <%- include('../includes/footer') %>
+            <script>
+              setTimeout(() => {
+                let alertBox = document.querySelector(".alert");
+                if (alertBox) {
+                  alertBox.classList.remove("show"); // Hide alert
+                  alertBox.classList.add("fade"); // Smooth transition
+                }
+              }, 2000);
+            </script>

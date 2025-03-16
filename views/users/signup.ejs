@@ -1,0 +1,82 @@
+<%- include('../partials/boilerplate') %>
+
+<% if (error.length > 0) { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <p><%=error%></p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<div class="col-10 offset-1">
+<h2>Sign-Up to WanderLust</h2>
+<form action="/signup" method="post" novalidate class="needs-validation" >
+    <div class="mb-3">
+        <!-- username -->
+       <label for="user" class="form-label">Username:</label>
+       <input type="text"
+       class="form-control"  
+       name="username" id="username" 
+       placeholder="Username"
+       required>
+       <div class="invalid-feedback">
+       Please Add Username
+      </div>
+      <!-- email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email"
+        class="form-control"  
+        name="email" id="email" 
+        placeholder="Email-id"
+        required>
+        <div class="invalid-feedback">
+        Please Add Email-Id
+       </div>
+       <!-- password -->
+       <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password"
+        class="form-control"  
+        name="password" id="password" 
+        placeholder="Password"
+        required>
+        <div class="invalid-feedback">
+        Please enter Password
+    </div>
+       <!-- button -->
+       <div class="mb-3 mt-3 form-button">
+        <button type="submit" class="btn btn-outline-secondary" >Signup</button>
+     </div>
+     
+    </div>
+</div>
+<div></div><br><br><br><br><br>
+<%- include('../includes/footer') %>
+<script>
+    (() => {
+   'use strict'
+ 
+   // Fetch all the forms we want to apply custom Bootstrap validation styles to
+   const forms = document.querySelectorAll('.needs-validation')
+ 
+   // Loop over them and prevent submission
+   Array.from(forms).forEach(form => {
+     form.addEventListener('submit', event => {
+       if (!form.checkValidity()) {
+         event.preventDefault()
+         event.stopPropagation()
+       }
+ 
+       form.classList.add('was-validated')
+     }, false)
+   })
+ })()
+ setTimeout(() => {
+      let alertBox = document.querySelector(".alert");
+      if (alertBox) {
+        alertBox.classList.remove("show"); // Hide alert
+        alertBox.classList.add("fade"); // Smooth transition
+      }
+    }, 2000);
+ 
+ </script>
