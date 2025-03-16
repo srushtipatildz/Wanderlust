@@ -116,7 +116,8 @@ import reviews from "./routes/review.js"
 import signup from "./routes/user.js"
 import login from "./routes/user.js"
 //import { index } from "./controllers/listingController.js";
-
+import listingsRoutes from "./routes/listings.js";
+app.use("/", listingsRoutes); 
 
 app.use("/",listings)//listing!
 app.use("/",reviews)//reviews!
